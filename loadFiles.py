@@ -98,11 +98,11 @@ class Loadfile(object):
 	
 		pass
 	
-	def toFile( self, outputFile, dialect='concordance' ):
+	def toFile( self, outputFile, fieldOrder = self.fields, dialect='concordance' ):
 	
 		with open(outputFile, 'w', newline='') as output:
 		
-			parser = csv.DictWriter(output, fieldnames = self.fields, restval = '', dialect=dialect)
+			parser = csv.DictWriter(output, fieldnames = fieldOrder, restval = '', dialect=dialect)
 			
 			parser.writeheader()
 			
