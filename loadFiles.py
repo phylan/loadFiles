@@ -160,13 +160,15 @@ class Loadfile(object):
 			
 			return families
 	
-	def sortRecords(  self, sortField ):
+	def sortRecords( self, sortField ):
 	
 			self.results.sort(key = operator.attrgetter(sortField))
 			return None
 	
-	def familySort ( self, sortField ):
-	
+	def sortFamilies( self, sortField ):
+			
+			#fams = self.getFamilies()
+			#maybe can just sort first then do get families? 
 			pass
 	
 class Record(object):
