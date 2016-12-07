@@ -1,4 +1,4 @@
-import csv, re
+import csv, re, operator
 from collections import OrderedDict, Counter, namedtuple
 
 #Register a dialect for Concordance load file delimiters using their ASCII values
@@ -36,6 +36,10 @@ class Bates(object):
 			
 			inst = cls(start.prefix, i, start.digits)
 			yield inst		
+			
+	def __add__( self ):
+	
+		pass
 	
 	def __str__( self ): 
 	
@@ -88,6 +92,11 @@ class Loadfile(object):
 			inst = cls(records, fields, key, nativeField, textField, familyField)
 
 			return inst
+	
+	@classmethod
+	def fromFiles( cls, directory, key ):
+	
+		pass
 	
 	def toFile( self, outputFile, dialect='concordance' ):
 	
@@ -150,7 +159,16 @@ class Loadfile(object):
 				families.append(Family(record,members))
 			
 			return families
-
+	
+	def sortRecords(  self, sortField ):
+	
+			self.results.sort(key = operator.attrgetter(sortField))
+			return None
+	
+	def familySort ( self, sortField ):
+	
+			pass
+	
 class Record(object):
 	
 	def __init__( self, key = '', metadata = {} ):
