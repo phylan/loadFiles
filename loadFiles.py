@@ -30,7 +30,7 @@ class Bates(object):
 		return inst
 	
 	@classmethod
-	def batesRange( cls, start = Bates(), end = Bates() ):
+	def batesRange( cls, start, end ):
 	
 		for i in range(start.number, end.number+1):
 			
